@@ -98,6 +98,8 @@ begin
 end;
 
 procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
+var
+  AStream: TMemoryStream;
 begin
   DataModule1.mdLayouts.Edit;
   DataModule1.mdLayoutsLayout.Assign(dxReport1.Layout);
