@@ -12,11 +12,12 @@ The example stores a saved report layout in a BLOB field of a memory-based datas
 
 ## Testing the example
 
-* Click **New Report** to create an empty database record.
+* Run the sample app and click **New Report** to create an empty database record.
 * Click **Show Designer** to display the [Report Designer](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer) dialog.
 * Create a report layout using any tools available in the UI.
 * Click the hamburger button and select the **Save** option and close the dialog.
-* Click **View Designer** or **View Report** to load the saved report layout or preview a layout-based report in the [Report Viewer](https://docs.devexpress.com/XtraReports/401850/web-reporting/web-document-viewer) dialog.
+* Close the app. The [TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) component stores layout data in a file between sessions.
+* Run the sample app again and click **View Designer** or **View Report** to load the saved report layout or preview a layout-based report in the [Report Viewer](https://docs.devexpress.com/XtraReports/401850/web-reporting/web-document-viewer) dialog.
 
 ## Documentation
 
