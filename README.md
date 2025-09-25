@@ -4,9 +4,8 @@
 <!-- default badges end -->
 # DevExpress VCL Reports - Store report layouts in a database
 
-This example demonstrates how to store a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in a dataset.
+This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in a BLOB field of a memory-based dataset ([TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) inherited from the standard [TDataSet](https://docwiki.embarcadero.com/Libraries/Athens/en/Data.DB.TDataSet) class shipped with the VCL library).
 
-<img width="2601" height="1466" alt="vcl-reports-tdxreport-template-designer@2x" src="https://github.com/user-attachments/assets/b1896095-f743-477e-b1c2-b5f8771f0d80" />
 
 ## Testing the example
 
