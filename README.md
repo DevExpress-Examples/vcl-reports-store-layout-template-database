@@ -6,16 +6,15 @@
 <!-- default badges end -->
 # DevExpress VCL Reports - Store report layouts in a database
 
-This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in a BLOB field of a memory-based dataset ([TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) inherited from the standard [TDataSet](https://docwiki.embarcadero.com/Libraries/Athens/en/Data.DB.TDataSet) class shipped with the VCL library).
-
+This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in the BLOB field of a memory-based dataset ([TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) inherited from the [TDataSet](https://docwiki.embarcadero.com/Libraries/Athens/en/Data.DB.TDataSet) class shipped with the standard VCL library).
 
 ## Testing the example
 
 * Run the sample app and click **New Report** to create an empty database record.
 * Click **Show Designer** to display the [Report Designer](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer) dialog.
-* Create a report layout using any tools available in the UI.
+* Create a report layout using tools available within the UI.
 * Click the hamburger button, select the **Save** option, and close the dialog.
-* Close the app. The [TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) component will store layout data in a file between sessions.
+* Close the app. The [TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) component will store layout data between sessions.
 * Run the sample app again. Click **View Designer** to load the saved report layout, or **View Report** to preview a layout-based report in the [Report Viewer](https://docs.devexpress.com/XtraReports/401850/web-reporting/web-document-viewer) dialog.
 
 ## Documentation
@@ -29,3 +28,4 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
