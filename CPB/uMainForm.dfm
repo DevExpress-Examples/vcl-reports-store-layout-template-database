@@ -1,9 +1,10 @@
 object MainForm: TMainForm
   Left = 0
   Top = 0
+  AutoSize = True
   Caption = 'MainForm'
-  ClientHeight = 835
-  ClientWidth = 1040
+  ClientHeight = 313
+  ClientWidth = 481
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,165 +12,130 @@ object MainForm: TMainForm
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
-  object btnShowDesigner: TcxButton
-    Left = 24
-    Top = 32
-    Width = 145
-    Height = 25
-    Caption = 'Show Designer'
-    SpeedButtonOptions.CanBeFocused = False
+  object dxLayoutControl1: TdxLayoutControl
+    Left = 0
+    Top = 0
+    Width = 481
+    Height = 313
     TabOrder = 0
-    OnClick = btnShowDesignerClick
-  end
-  object btnViewReport: TcxButton
-    Left = 192
-    Top = 32
-    Width = 193
-    Height = 25
-    Caption = 'View Report'
-    TabOrder = 1
-    OnClick = btnViewReportClick
-  end
-  object cxGrid1: TcxGrid
-    Left = 272
-    Top = 496
-    Width = 521
-    Height = 265
-    TabOrder = 2
-    object gvCategories: TcxGridDBTableView
-      Navigator.Buttons.CustomButtons = <>
-      ScrollbarAnnotations.CustomAnnotations = <>
-      DataController.DataSource = DataModule1.dsCategories
-      DataController.KeyFieldNames = 'CategoryID'
-      DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <>
-      DataController.Summary.SummaryGroups = <>
-      object gvCategoriesCategoryID: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryID'
+    AutoSize = True
+    object btnDesign: TcxButton
+      Left = 12
+      Top = 44
+      Width = 377
+      Height = 25
+      Caption = 'Design Report'
+      SpeedButtonOptions.CanBeFocused = False
+      TabOrder = 1
+      OnClick = btnDesignClick
+    end
+    object btnPreview: TcxButton
+      Left = 12
+      Top = 76
+      Width = 377
+      Height = 25
+      Caption = 'PreviewReport'
+      TabOrder = 2
+      OnClick = btnPreviewClick
+    end
+    object cxGrid2: TcxGrid
+      Left = 12
+      Top = 108
+      Width = 377
+      Height = 101
+      TabOrder = 3
+      object gvLayouts: TcxGridDBTableView
+        DataController.DataSource = DataModule1.dsLayouts
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GroupByBox = False
+        OptionsView.Indicator = True
+        object gvLayoutsRecId: TcxGridDBColumn
+          DataBinding.FieldName = 'RecId'
+          Visible = False
+        end
+        object gvLayoutsLayout: TcxGridDBColumn
+          Caption = 'Report Layout'
+          DataBinding.FieldName = 'Layout'
+        end
+        object gvLayoutsName: TcxGridDBColumn
+          Caption = 'Report Name'
+          DataBinding.FieldName = 'Name'
+        end
       end
-      object gvCategoriesCategoryName: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryName'
-      end
-      object gvCategoriesDescription: TcxGridDBColumn
-        DataBinding.FieldName = 'Description'
+      object cxGrid2Level1: TcxGridLevel
+        GridView = gvLayouts
       end
     end
-    object gvProducts: TcxGridDBTableView
-      Navigator.Buttons.CustomButtons = <>
-      ScrollbarAnnotations.CustomAnnotations = <>
-      DataController.DataSource = DataModule1.dsProducts
-      DataController.DetailKeyFieldNames = 'CategoryID'
-      DataController.KeyFieldNames = 'ProductID'
-      DataController.MasterKeyFieldNames = 'CategoryID'
-      DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <>
-      DataController.Summary.SummaryGroups = <>
-      object gvProductsProductID: TcxGridDBColumn
-        DataBinding.FieldName = 'ProductID'
-      end
-      object gvProductsProductName: TcxGridDBColumn
-        DataBinding.FieldName = 'ProductName'
-        Width = 244
-      end
-      object gvProductsSupplierID: TcxGridDBColumn
-        DataBinding.FieldName = 'SupplierID'
-      end
-      object gvProductsCategoryID: TcxGridDBColumn
-        DataBinding.FieldName = 'CategoryID'
-      end
-      object gvProductsQuantityPerUnit: TcxGridDBColumn
-        DataBinding.FieldName = 'QuantityPerUnit'
-        Width = 124
-      end
-      object gvProductsUnitPrice: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitPrice'
-      end
-      object gvProductsUnitsInStock: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitsInStock'
-      end
-      object gvProductsUnitsOnOrder: TcxGridDBColumn
-        DataBinding.FieldName = 'UnitsOnOrder'
-      end
-      object gvProductsReorderLevel: TcxGridDBColumn
-        DataBinding.FieldName = 'ReorderLevel'
-      end
-      object gvProductsDiscontinued: TcxGridDBColumn
-        DataBinding.FieldName = 'Discontinued'
-        Width = 34
-      end
-      object gvProductsEAN13: TcxGridDBColumn
-        DataBinding.FieldName = 'EAN13'
-        Width = 76
-      end
+    object btnNew: TcxButton
+      Left = 12
+      Top = 12
+      Width = 377
+      Height = 25
+      Caption = 'New Report'
+      TabOrder = 0
+      OnClick = btnNewClick
     end
-    object cxGrid1Level1: TcxGridLevel
-      GridView = gvCategories
-      object cxGrid1Level2: TcxGridLevel
-        GridView = gvProducts
-      end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      Hidden = True
+      ShowBorder = False
+      Index = -1
     end
-  end
-  object cxGrid2: TcxGrid
-    Left = 48
-    Top = 192
-    Width = 377
-    Height = 249
-    TabOrder = 3
-    object gvLayouts: TcxGridDBTableView
-      Navigator.Buttons.CustomButtons = <>
-      ScrollbarAnnotations.CustomAnnotations = <>
-      DataController.DataSource = DataModule1.dsLayouts
-      DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <>
-      DataController.Summary.SummaryGroups = <>
-      OptionsData.CancelOnExit = False
-      OptionsData.Deleting = False
-      OptionsData.DeletingConfirmation = False
-      OptionsData.Editing = False
-      OptionsData.Inserting = False
-      OptionsView.Indicator = True
-      object gvLayoutsRecId: TcxGridDBColumn
-        DataBinding.FieldName = 'RecId'
-        Visible = False
-      end
-      object gvLayoutsLayout: TcxGridDBColumn
-        DataBinding.FieldName = 'Layout'
-      end
-      object gvLayoutsName: TcxGridDBColumn
-        DataBinding.FieldName = 'Name'
-      end
+    object liNew: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'btnNew'
+      CaptionOptions.Visible = False
+      Control = btnNew
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 145
+      ControlOptions.ShowBorder = False
+      Index = 0
     end
-    object cxGrid2Level1: TcxGridLevel
-      GridView = gvLayouts
+    object liShowDesigner: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'btnShowDesigner'
+      CaptionOptions.Visible = False
+      Control = btnDesign
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 145
+      ControlOptions.ShowBorder = False
+      Index = 1
     end
-  end
-  object btnNew: TcxButton
-    Left = 24
-    Top = 72
-    Width = 145
-    Height = 25
-    Caption = 'New Report'
-    TabOrder = 4
-    OnClick = btnNewClick
+    object liViewReport: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'btnViewReport'
+      CaptionOptions.Visible = False
+      Control = btnPreview
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 193
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object liGrid: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'cxGrid2'
+      CaptionOptions.Visible = False
+      Control = cxGrid2
+      ControlOptions.OriginalHeight = 101
+      ControlOptions.OriginalWidth = 377
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
   end
   object dxReport1: TdxReport
     OnLayoutChanged = dxReport1LayoutChanged
     Left = 48
     Top = 88
   end
-  object dxReportDataConnectionManager1: TdxReportDataConnectionManager
-    Left = 112
-    Top = 88
-    object dxReportDataConnectionManager1dxReportDataSetJSONConnection1: TdxReportDataSetJSONConnection
-      DisplayName = 'DataSetConnection'
-      object itmProducts: TdxReportDataSetCollectionItem
-        DataSet = DataModule1.mdProducts
-        DataSetAlias = 'mdProducts'
-      end
-      object itmCategories: TdxReportDataSetCollectionItem
-        DataSet = DataModule1.mdCategories
-        DataSetAlias = 'mdCategories'
-      end
-    end
+  object cxImageList1: TcxImageList
+    SourceDPI = 96
+    FormatVersion = 1
+    DesignInfo = 17301840
   end
 end

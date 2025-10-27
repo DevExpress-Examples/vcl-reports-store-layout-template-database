@@ -31,37 +31,26 @@
 #include "dxReport.Backend.hpp"
 #include "dxReport.ConnectionString.JSON.DB.hpp"
 #include "dxReport.ConnectionString.JSON.hpp"
+#include "dxReport.ConnectionString.SQL.hpp"
 #include "dxReport.hpp"
 #include "dxScrollbarAnnotations.hpp"
 #include <Data.DB.hpp>
 #include <Vcl.Menus.hpp>
 #include "dxmdaset.hpp"
 #include "uData.h"
+#include "cxImageList.hpp"
+#include "dxLayoutContainer.hpp"
+#include "dxLayoutControl.hpp"
+#include "dxLayoutControlAdapters.hpp"
+#include <System.ImageList.hpp>
+#include <Vcl.ImgList.hpp>
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
 __published:	// IDE-managed Components
-	TcxButton *btnShowDesigner;
-	TcxButton *btnViewReport;
-	TcxGrid *cxGrid1;
-	TcxGridDBTableView *gvCategories;
-	TcxGridDBColumn *gvCategoriesCategoryID;
-	TcxGridDBColumn *gvCategoriesCategoryName;
-	TcxGridDBColumn *gvCategoriesDescription;
-	TcxGridDBTableView *gvProducts;
-	TcxGridDBColumn *gvProductsProductID;
-	TcxGridDBColumn *gvProductsProductName;
-	TcxGridDBColumn *gvProductsSupplierID;
-	TcxGridDBColumn *gvProductsCategoryID;
-	TcxGridDBColumn *gvProductsQuantityPerUnit;
-	TcxGridDBColumn *gvProductsUnitPrice;
-	TcxGridDBColumn *gvProductsUnitsInStock;
-	TcxGridDBColumn *gvProductsUnitsOnOrder;
-	TcxGridDBColumn *gvProductsReorderLevel;
-	TcxGridDBColumn *gvProductsDiscontinued;
-	TcxGridDBColumn *gvProductsEAN13;
-	TcxGridLevel *cxGrid1Level1;
-	TcxGridLevel *cxGrid1Level2;
+	TdxLayoutControl *dxLayoutControl1;
+	TcxButton *btnDesign;
+	TcxButton *btnPreview;
 	TcxGrid *cxGrid2;
 	TcxGridDBTableView *gvLayouts;
 	TcxGridDBColumn *gvLayoutsRecId;
@@ -69,15 +58,17 @@ __published:	// IDE-managed Components
 	TcxGridDBColumn *gvLayoutsName;
 	TcxGridLevel *cxGrid2Level1;
 	TcxButton *btnNew;
+	TdxLayoutGroup *dxLayoutControl1Group_Root;
+	TdxLayoutItem *liNew;
+	TdxLayoutItem *liShowDesigner;
+	TdxLayoutItem *liViewReport;
+	TdxLayoutItem *liGrid;
 	TdxReport *dxReport1;
-	TdxReportDataConnectionManager *dxReportDataConnectionManager1;
-	TdxReportDataSetJSONConnection *dxReportDataConnectionManager1dxReportDataSetJSONConnection1;
-	TdxReportDataSetCollectionItem *itmProducts;
-	TdxReportDataSetCollectionItem *itmCategories;
-	void __fastcall btnShowDesignerClick(TObject *Sender);
-	void __fastcall btnViewReportClick(TObject *Sender);
+	TcxImageList *cxImageList1;
 	void __fastcall btnNewClick(TObject *Sender);
 	void __fastcall dxReport1LayoutChanged(TdxReport *ASender);
+	void __fastcall btnDesignClick(TObject *Sender);
+	void __fastcall btnPreviewClick(TObject *Sender);
 private:	// User declarations
 protected:
     void __fastcall LoadData();

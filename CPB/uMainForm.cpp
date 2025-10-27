@@ -40,6 +40,10 @@
 
 #pragma link "dxScrollbarAnnotations"
 #pragma link "dxmdaset"
+#pragma link "cxImageList"
+#pragma link "dxLayoutContainer"
+#pragma link "dxLayoutControl"
+#pragma link "dxLayoutControlAdapters"
 #pragma resource "*.dfm"
 TMainForm *MainForm;
 //---------------------------------------------------------------------------
@@ -55,40 +59,41 @@ void __fastcall TMainForm::btnNewClick(TObject *Sender)
 {
     DataModule1->mdLayouts->Append();
 }
-
-void __fastcall TMainForm::btnShowDesignerClick(TObject *Sender)
-{
-    if ((DataModule1->mdLayouts->RecordCount == 0) &&
-        !(DataModule1->mdLayouts->State == dsInsert))
-    {
-        ShowMessage("The database is empty");
-        return;
-    }
-
-    dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
-    dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
-    dxReport1->ShowDesigner();
-}
-
-void __fastcall TMainForm::btnViewReportClick(TObject *Sender)
-{
-    if (DataModule1->mdLayoutsName->AsString == "")
-    {
-        ShowMessage("The report is not specified");
-        return;
-    }
-
-    dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
-    dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
-    dxReport1->ShowViewer();
-}
-
 void __fastcall TMainForm::dxReport1LayoutChanged(TdxReport *ASender)
 {
     DataModule1->mdLayouts->Edit();
     DataModule1->mdLayoutsLayout->Assign(dxReport1->Layout);
     DataModule1->mdLayoutsName->AsString = dxReport1->ReportName;
     DataModule1->mdLayouts->Post();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnDesignClick(TObject *Sender)
+{
+    if ((DataModule1->mdLayouts->RecordCount == 0) &&
+		!(DataModule1->mdLayouts->State == dsInsert))
+	{
+		ShowMessage("The database is empty");
+		return;
+	}
+
+	dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
+	dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
+	dxReport1->ShowDesigner();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnPreviewClick(TObject *Sender)
+{
+	if (DataModule1->mdLayoutsName->AsString == "")
+	{
+		ShowMessage("The report is not specified");
+		return;
+	}
+
+	dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
+	dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
+	dxReport1->ShowViewer();
 }
 //---------------------------------------------------------------------------
 

@@ -11,36 +11,14 @@ uses
   Data.DB, cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, dxReport.ConnectionString.JSON.DB,
-  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset, uData;
+  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset, uData,
+  dxLayoutControlAdapters, dxLayoutContainer, dxLayoutControl;
 
 type
   TMainForm = class(TForm)
     dxReport1: TdxReport;
-    dxReportDataConnectionManager1: TdxReportDataConnectionManager;
-    btnShowDesigner: TcxButton;
-    btnViewReport: TcxButton;
-    dxReportDataConnectionManager1dxReportDataSetJSONConnection1: TdxReportDataSetJSONConnection;
-    itmProducts: TdxReportDataSetCollectionItem;
-    itmCategories: TdxReportDataSetCollectionItem;
-    cxGrid1: TcxGrid;
-    gvCategories: TcxGridDBTableView;
-    gvCategoriesCategoryID: TcxGridDBColumn;
-    gvCategoriesCategoryName: TcxGridDBColumn;
-    gvCategoriesDescription: TcxGridDBColumn;
-    gvProducts: TcxGridDBTableView;
-    gvProductsProductID: TcxGridDBColumn;
-    gvProductsProductName: TcxGridDBColumn;
-    gvProductsSupplierID: TcxGridDBColumn;
-    gvProductsCategoryID: TcxGridDBColumn;
-    gvProductsQuantityPerUnit: TcxGridDBColumn;
-    gvProductsUnitPrice: TcxGridDBColumn;
-    gvProductsUnitsInStock: TcxGridDBColumn;
-    gvProductsUnitsOnOrder: TcxGridDBColumn;
-    gvProductsReorderLevel: TcxGridDBColumn;
-    gvProductsDiscontinued: TcxGridDBColumn;
-    gvProductsEAN13: TcxGridDBColumn;
-    cxGrid1Level1: TcxGridLevel;
-    cxGrid1Level2: TcxGridLevel;
+    btnDesign: TcxButton;
+    btnPreview: TcxButton;
     gvLayouts: TcxGridDBTableView;
     cxGrid2Level1: TcxGridLevel;
     cxGrid2: TcxGrid;
@@ -48,8 +26,14 @@ type
     gvLayoutsRecId: TcxGridDBColumn;
     gvLayoutsLayout: TcxGridDBColumn;
     gvLayoutsName: TcxGridDBColumn;
-    procedure btnShowDesignerClick(Sender: TObject);
-    procedure btnViewReportClick(Sender: TObject);
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    liNew: TdxLayoutItem;
+    liShowDesigner: TdxLayoutItem;
+    liViewReport: TdxLayoutItem;
+    liGrid: TdxLayoutItem;
+    procedure btnDesignClick(Sender: TObject);
+    procedure btnPreviewClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure dxReport1LayoutChanged(ASender: TdxReport);
   private
@@ -71,7 +55,7 @@ begin
   DataModule1.mdLayouts.Append
 end;
 
-procedure TMainForm.btnShowDesignerClick(Sender: TObject);
+procedure TMainForm.btnDesignClick(Sender: TObject);
 begin
   if (DataModule1.mdLayouts.RecordCount = 0) and not (DataModule1.mdLayouts.State = dsInsert)  then
   begin
@@ -84,7 +68,7 @@ begin
   dxReport1.ShowDesigner;
 end;
 
-procedure TMainForm.btnViewReportClick(Sender: TObject);
+procedure TMainForm.btnPreviewClick(Sender: TObject);
 begin
   if (DataModule1.mdLayoutsName.AsString = '')  then
   begin

@@ -3,7 +3,8 @@ program ReportTemplate;
 uses
   Vcl.Forms,
   uMainForm in 'uMainForm.pas' {MainForm},
-  uData in 'uData.pas' {DataModule1: TDataModule};
+  uData in 'uData.pas' {DataModule1: TDataModule},
+  ReportTemplate.dxSettings in 'ReportTemplate.dxSettings.pas';
 
 {$R *.res}
 

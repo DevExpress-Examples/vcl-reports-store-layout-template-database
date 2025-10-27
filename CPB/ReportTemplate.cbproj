@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{78325D59-9C55-4DF5-9E88-7E84FAB72DB5}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
@@ -87,7 +87,7 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
         <ProjectType>CppVCLApplication</ProjectType>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;vclFireDAC.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;cxLibraryRS29.lib;dxGDIPlusRS29.lib;dxCoreRS29.lib;dbexpress.lib;DbxCommonDriver.lib;vclie.lib;vcledge.lib;cxGridRS29.lib;cxExportRS29.lib;dxSpreadSheetCoreRS29.lib;dxComnRS29.lib;dxSpreadSheetRS29.lib;dxServerModeRS29.lib;dxReportsRS29.lib;dxPSCoreRS29.lib;dxPSdxPDFViewerLnkRS29.lib;dxPDFViewerRS29.lib;FireDACMSAccDriver.lib;FireDACCommonODBC.lib;dxmdsRS29.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;vclFireDAC.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;cxLibraryRS29.lib;dxGDIPlusRS29.lib;dxCoreRS29.lib;dbexpress.lib;DbxCommonDriver.lib;vclie.lib;vcledge.lib;cxGridRS29.lib;cxExportRS29.lib;dxSpreadSheetCoreRS29.lib;dxComnRS29.lib;dxSpreadSheetRS29.lib;dxServerModeRS29.lib;dxReportsRS29.lib;dxPSCoreRS29.lib;dxPSdxPDFViewerLnkRS29.lib;dxPDFViewerRS29.lib;FireDACMSAccDriver.lib;FireDACCommonODBC.lib;dxmdsRS29.lib;dxSkinsCoreRS29.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
@@ -167,7 +167,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;vclFireDAC.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi;cxLibraryRS29.bpi;dxGDIPlusRS29.bpi;dxCoreRS29.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;vcledge.bpi;cxGridRS29.bpi;cxExportRS29.bpi;dxSpreadSheetCoreRS29.bpi;dxComnRS29.bpi;dxSpreadSheetRS29.bpi;dxServerModeRS29.bpi;dxReportsRS29.bpi;dxPSCoreRS29.bpi;dxPSdxPDFViewerLnkRS29.bpi;dxPDFViewerRS29.bpi;FireDACMSAccDriver.bpi;FireDACCommonODBC.bpi;dxmdsRS29.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;vclFireDAC.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi;cxLibraryRS29.bpi;dxGDIPlusRS29.bpi;dxCoreRS29.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;vcledge.bpi;cxGridRS29.bpi;cxExportRS29.bpi;dxSpreadSheetCoreRS29.bpi;dxComnRS29.bpi;dxSpreadSheetRS29.bpi;dxServerModeRS29.bpi;dxReportsRS29.bpi;dxPSCoreRS29.bpi;dxPSdxPDFViewerLnkRS29.bpi;dxPDFViewerRS29.bpi;FireDACMSAccDriver.bpi;FireDACCommonODBC.bpi;dxmdsRS29.bpi;dxSkinsCoreRS29.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -188,6 +188,9 @@ $(PostBuildEvent)]]></PostBuildEvent>
     <ItemGroup>
         <CppCompile Include="ReportTemplate.cpp">
             <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="ReportTemplate.dxSettings.cpp">
+            <BuildOrder>4</BuildOrder>
         </CppCompile>
         <PCHCompile Include="ReportTemplatePCH1.h">
             <BuildOrder>1</BuildOrder>
@@ -1287,8 +1290,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
         <PreLinkEvent/>
         <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)
-</PostBuildEvent>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)</PostBuildEvent>
         <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win64x'">
@@ -1296,8 +1298,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
         <PreLinkEvent/>
         <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)
-</PostBuildEvent>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)</PostBuildEvent>
         <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
     </PropertyGroup>
 </Project>

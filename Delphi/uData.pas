@@ -3,33 +3,19 @@ unit uData;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, dxmdaset;
+  System.SysUtils, System.Classes, Data.DB, dxmdaset, cxClasses,
+  dxReport.Backend, dxReport.ConnectionString.SQL, dxCore, cxLookAndFeels,
+  dxSkinsForm;
 
 type
   TDataModule1 = class(TDataModule)
-    dsProducts: TDataSource;
-    dsCategories: TDataSource;
-    mdCategories: TdxMemData;
-    mdCategoriesCategoryID: TAutoIncField;
-    mdCategoriesCategoryName: TWideStringField;
-    mdCategoriesDescription: TWideMemoField;
-    mdCategoriesPicture: TBlobField;
-    mdProducts: TdxMemData;
-    mdProductsProductID: TAutoIncField;
-    mdProductsProductName: TWideStringField;
-    mdProductsSupplierID: TIntegerField;
-    mdProductsCategoryID: TIntegerField;
-    mdProductsQuantityPerUnit: TWideStringField;
-    mdProductsUnitPrice: TCurrencyField;
-    mdProductsUnitsInStock: TSmallintField;
-    mdProductsUnitsOnOrder: TSmallintField;
-    mdProductsReorderLevel: TSmallintField;
-    mdProductsDiscontinued: TBooleanField;
-    mdProductsEAN13: TWideStringField;
     mdLayouts: TdxMemData;
     dsLayouts: TDataSource;
     mdLayoutsLayout: TBlobField;
     mdLayoutsName: TWideStringField;
+    dxReportDataConnectionManager: TdxReportDataConnectionManager;
+    ReportsNWindConnectionString: TdxReportDatabaseSQLConnection;
+    dxSkinController1: TdxSkinController;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private

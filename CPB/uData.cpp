@@ -8,6 +8,11 @@
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
 #pragma link "dxmdaset"
+#pragma link "cxClasses"
+#pragma link "dxReport.Backend"
+#pragma link "cxLookAndFeels"
+#pragma link "dxCore"
+#pragma link "dxSkinsForm"
 #pragma resource "*.dfm"
 TDataModule1 *DataModule1;
 //---------------------------------------------------------------------------
