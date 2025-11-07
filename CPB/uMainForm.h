@@ -28,10 +28,6 @@
 #include "cxNavigator.hpp"
 #include "cxStyles.hpp"
 #include "dxDateRanges.hpp"
-#include "dxReport.Backend.hpp"
-#include "dxReport.ConnectionString.JSON.DB.hpp"
-#include "dxReport.ConnectionString.JSON.hpp"
-#include "dxReport.ConnectionString.SQL.hpp"
 #include "dxReport.hpp"
 #include "dxScrollbarAnnotations.hpp"
 #include <Data.DB.hpp>

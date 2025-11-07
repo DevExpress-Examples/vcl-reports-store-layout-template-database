@@ -9,10 +9,17 @@
 #pragma classgroup "Vcl.Controls.TControl"
 #pragma link "dxmdaset"
 #pragma link "cxClasses"
-#pragma link "dxReport.Backend"
 #pragma link "cxLookAndFeels"
 #pragma link "dxCore"
 #pragma link "dxSkinsForm"
+#pragma link "dxBackend"
+
+#if defined(_WIN64)
+  #pragma link "dxBackend.ConnectionString.SQL.O"
+#else
+  #pragma link "dxBackend.ConnectionString.SQL.OBJ"
+#endif
+
 #pragma resource "*.dfm"
 TDataModule1 *DataModule1;
 //---------------------------------------------------------------------------

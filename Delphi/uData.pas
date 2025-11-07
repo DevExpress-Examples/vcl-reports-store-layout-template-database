@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, dxmdaset, cxClasses,
-  dxReport.Backend, dxReport.ConnectionString.SQL, dxCore, cxLookAndFeels,
-  dxSkinsForm;
+  dxCore, cxLookAndFeels,
+  dxSkinsForm, dxBackend, dxBackend.ConnectionString.SQL;
 
 type
   TDataModule1 = class(TDataModule)
@@ -13,8 +13,8 @@ type
     dsLayouts: TDataSource;
     mdLayoutsLayout: TBlobField;
     mdLayoutsName: TWideStringField;
-    dxReportDataConnectionManager: TdxReportDataConnectionManager;
-    ReportsNWindConnectionString: TdxReportDatabaseSQLConnection;
+    dxBackendDataConnectionManager1: TdxBackendDataConnectionManager;
+    ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection;
     dxSkinController1: TdxSkinController;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);

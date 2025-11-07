@@ -129,6 +129,7 @@ object MainForm: TMainForm
     end
   end
   object dxReport1: TdxReport
+    Parameters = <>
     OnLayoutChanged = dxReport1LayoutChanged
     Left = 48
     Top = 88

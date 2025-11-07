@@ -7,11 +7,11 @@
 #include "dxmdaset.hpp"
 #include <Data.DB.hpp>
 #include "cxClasses.hpp"
-#include "dxReport.Backend.hpp"
-#include "dxReport.ConnectionString.SQL.hpp"
 #include "cxLookAndFeels.hpp"
 #include "dxCore.h"
 #include "dxSkinsForm.hpp"
+#include "dxBackend.ConnectionString.SQL.hpp"
+#include "dxBackend.hpp"
 //---------------------------------------------------------------------------
 class TDataModule1 : public TDataModule
 {
@@ -20,8 +20,8 @@ __published:	// IDE-managed Components
 	TBlobField *mdLayoutsLayout;
 	TWideStringField *mdLayoutsName;
 	TDataSource *dsLayouts;
-	TdxReportDataConnectionManager *dxReportDataConnectionManager;
-	TdxReportDatabaseSQLConnection *ReportsNWindConnectionString;
+	TdxBackendDataConnectionManager *dxBackendDataConnectionManager1;
+	TdxBackendDatabaseSQLConnection *ReportsNWindConnectionString;
 	TdxSkinController *dxSkinController1;
 	void __fastcall DataModuleCreate(TObject *Sender);
 	void __fastcall DataModuleDestroy(TObject *Sender);

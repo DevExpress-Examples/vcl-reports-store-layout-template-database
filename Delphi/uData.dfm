@@ -1,8 +1,8 @@
 object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 338
-  Width = 616
+  Height = 499
+  Width = 740
   PixelsPerInch = 192
   object mdLayouts: TdxMemData
     Active = True
@@ -808,10 +808,10 @@ object DataModule1: TDataModule1
     Left = 208
     Top = 104
   end
-  object dxReportDataConnectionManager: TdxReportDataConnectionManager
+  object dxBackendDataConnectionManager1: TdxBackendDataConnectionManager
     Left = 120
     Top = 104
-    object ReportsNWindConnectionString: TdxReportDatabaseSQLConnection
+    object ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection
       DisplayName = 'NWindConnectionString'
       ConnectionString = 
         'XpoProvider=SQLite; Data Source=|DataDirectory|\..\..\..\nwind.d' +
