@@ -8,6 +8,12 @@
 
 This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in the BLOB field of a memory-based dataset ([TdxMemData](https://docs.devexpress.com/VCL/dxmdaset.TdxMemData) inherited from the [TDataSet](https://docwiki.embarcadero.com/Libraries/Athens/en/Data.DB.TDataSet) class shipped with the standard VCL library).
 
+## Prerequisites
+
+* Microsoft Windows 10 or newer
+* Embarcadero RAD Studio IDE 12.3 (Athens) or newer (Community Edition is not supported)
+* DevExpress VCL Components v25.2.3 or newer
+
 ## Testing the example
 
 * Run the sample app and click **New Report** to create an empty database record.
@@ -28,6 +34,7 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
 
 
