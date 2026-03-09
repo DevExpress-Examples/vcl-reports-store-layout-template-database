@@ -62,7 +62,6 @@ begin
     ShowMessage('The database is empty');
     Exit;
   end;
-
   dxReport1.ReportName := DataModule1.mdLayoutsName.AsString;
   dxReport1.Layout.Assign(DataModule1.mdLayoutsLayout);
   dxReport1.ShowDesigner;

@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   AutoSize = True
-  Caption = 'MainForm'
+  Caption = 'DevExpress Example: Store Report in DB'
   ClientHeight = 353
   ClientWidth = 505
   Color = clBtnFace
@@ -25,7 +25,6 @@ object MainForm: TMainForm
       Width = 377
       Height = 25
       Caption = 'Design Report'
-      SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
       OnClick = btnDesignClick
     end
@@ -34,7 +33,7 @@ object MainForm: TMainForm
       Top = 76
       Width = 377
       Height = 25
-      Caption = ' Preview Report'
+      Caption = 'Preview Report'
       TabOrder = 2
       OnClick = btnPreviewClick
     end
