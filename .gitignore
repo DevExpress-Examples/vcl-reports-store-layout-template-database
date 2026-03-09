@@ -56,6 +56,8 @@ __recovery/
 *.ils
 *.map
 *.tds
+# Program Database file that stores debugging symbols
+*.pdb 
 
 # Precompiled headers
 *.pch
