@@ -13,6 +13,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
+		Application->Title = "DevExpress Example: Store Report in a Database";
 		Application->CreateForm(__classid(TMainForm), &MainForm);
 		Application->CreateForm(__classid(TDataModule1), &DataModule1);
 		Application->Run();
