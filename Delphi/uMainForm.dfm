@@ -25,7 +25,6 @@ object MainForm: TMainForm
       Width = 377
       Height = 25
       Caption = 'Design Report'
-      SpeedButtonOptions.CanBeFocused = False
       TabOrder = 1
       OnClick = btnDesignClick
     end

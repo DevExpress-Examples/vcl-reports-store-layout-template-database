@@ -33,7 +33,7 @@ implementation
 
 {$R *.dfm}
 const
-  DataFileName = '..\..\data.dat';
+  DataFileName = 'data.dat';
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
