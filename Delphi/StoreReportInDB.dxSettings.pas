@@ -14,7 +14,7 @@
 {                                                                      }
 {**********************************************************************}
 
-unit ReportTemplate.dxSettings;
+unit StoreReportInDB.dxSettings;
 
 {$I cxVer.inc}
 
