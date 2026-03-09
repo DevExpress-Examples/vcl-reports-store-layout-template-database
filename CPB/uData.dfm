@@ -813,12 +813,11 @@ object DataModule1: TDataModule1
     Top = 104
     object ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection
       DisplayName = 'NWindConnectionString'
-      ConnectionString = 
-        'XpoProvider=SQLite; Data Source=|DataDirectory|\..\..\..\nwind.d' +
-        'b; Mode=ReadOnly'
+      ConnectionString = 'XpoProvider=SQLite; Data Source=nwind.db; Mode=ReadOnly'
     end
   end
   object dxSkinController1: TdxSkinController
+    NativeStyle = False
     SkinName = 'WXI'
     Left = 392
     Top = 104
