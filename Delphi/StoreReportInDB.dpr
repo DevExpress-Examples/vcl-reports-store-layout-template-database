@@ -11,7 +11,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.Title := 'DevExpress Example: Store Report in a Database';
+  Application.Title := 'DevExpress Example: Store Reports in a Database';
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
