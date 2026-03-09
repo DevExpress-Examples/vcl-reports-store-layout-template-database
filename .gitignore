@@ -6,6 +6,7 @@ Win64x/
 
 # Delphi compiler-generated binaries (safe to delete)
 *.exe
+*.exe.*
 *.dll
 *.bpl
 *.bpi
@@ -58,6 +59,7 @@ __recovery/
 *.tds
 # Program Database file that stores debugging symbols
 *.pdb 
+
 
 # Precompiled headers
 *.pch

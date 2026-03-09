@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   AutoSize = True
-  Caption = 'MainForm'
+  Caption = 'DevExpress Example: Store Reports in DB'
   ClientHeight = 313
   ClientWidth = 481
   Color = clBtnFace
