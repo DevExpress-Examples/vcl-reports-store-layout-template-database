@@ -31,7 +31,6 @@
 
 #pragma link "dxScrollbarAnnotations"
 #pragma link "dxmdaset"
-#pragma link "cxImageList"
 #pragma link "dxLayoutContainer"
 #pragma link "dxLayoutControl"
 #pragma link "dxLayoutControlAdapters"

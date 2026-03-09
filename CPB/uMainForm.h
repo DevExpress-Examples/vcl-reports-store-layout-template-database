@@ -34,12 +34,9 @@
 #include <Vcl.Menus.hpp>
 #include "dxmdaset.hpp"
 #include "uData.h"
-#include "cxImageList.hpp"
 #include "dxLayoutContainer.hpp"
 #include "dxLayoutControl.hpp"
 #include "dxLayoutControlAdapters.hpp"
-#include <System.ImageList.hpp>
-#include <Vcl.ImgList.hpp>
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
@@ -60,14 +57,11 @@ __published:	// IDE-managed Components
 	TdxLayoutItem *liViewReport;
 	TdxLayoutItem *liGrid;
 	TdxReport *dxReport1;
-	TcxImageList *cxImageList1;
 	void __fastcall btnNewClick(TObject *Sender);
 	void __fastcall dxReport1LayoutChanged(TdxReport *ASender);
 	void __fastcall btnDesignClick(TObject *Sender);
 	void __fastcall btnPreviewClick(TObject *Sender);
 private:	// User declarations
-protected:
-    void __fastcall LoadData();
 public:		// User declarations
 	__fastcall TMainForm(TComponent* Owner);
 };

@@ -133,9 +133,4 @@ object MainForm: TMainForm
     Left = 48
     Top = 88
   end
-  object cxImageList1: TcxImageList
-    SourceDPI = 96
-    FormatVersion = 1
-    DesignInfo = 17301840
-  end
 end
