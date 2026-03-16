@@ -1,0 +1,7 @@
+# GitHub Repository metadata
+url: vcl-reports-store-layout-template-database
+website: 
+tags: [vcl, reports, layout, database]
+description: |
+  This example stores a report layout (XML-based template) in the BLOB field of a memory-based dataset
+  (TdxMemData inherited from the TDataSet class shipped with the standard VCL library).
