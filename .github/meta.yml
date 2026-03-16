@@ -1,7 +1,6 @@
 # GitHub Repository metadata
 url: vcl-reports-store-layout-template-database
-website: 
-tags: [vcl, reports, layout, database]
+website: https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout
+tags: [vcl, reports, layout, database, dataset]
 description: |
-  This example stores a report layout (XML-based template) in the BLOB field of a memory-based dataset
-  (TdxMemData inherited from the TDataSet class shipped with the standard VCL library).
+  Store a DevExpress report layout in a database and load it at runtime.
