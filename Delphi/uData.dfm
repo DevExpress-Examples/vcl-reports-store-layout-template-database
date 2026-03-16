@@ -794,8 +794,8 @@ object DataModule1: TDataModule1
       69616C697A65723E0D0A010B0000005400610062006C0065005200650070006F
       0072007400}
     SortOptions = []
-    Left = 408
-    Top = 112
+    Left = 424
+    Top = 104
     object mdLayoutsLayout: TBlobField
       FieldName = 'Layout'
     end
@@ -816,10 +816,9 @@ object DataModule1: TDataModule1
       ConnectionString = 'XpoProvider=SQLite; Data Source=nwind.db; Mode=ReadOnly'
     end
   end
-  object dxSkinController1: TdxSkinController
-    NativeStyle = False
-    SkinName = 'WXI'
-    Left = 304
-    Top = 104
+  object ApplicationEvents1: TApplicationEvents
+    OnException = ApplicationEvents1Exception
+    Left = 208
+    Top = 264
   end
 end

@@ -2,17 +2,15 @@ unit uMainForm;
 
 interface
 
-uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxClasses, dxReport, cxGraphics,
-  cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus,  cxButtons,
-  cxControls, cxStyles, cxCustomData, cxFilter, cxData,
-  cxDataStorage, cxEdit, cxNavigator, dxDateRanges, dxScrollbarAnnotations,
-  Data.DB, cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client,
-  Vcl.StdCtrls, dxmdaset, uData,
-  dxLayoutControlAdapters, dxLayoutContainer, dxLayoutControl;
+uses Vcl.Forms, dxMessageDialog, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
+  dxDateRanges, dxScrollbarAnnotations, Data.DB, cxDBData,
+  dxLayoutControlAdapters, dxLayoutContainer, dxReport, cxGridLevel,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
+  cxGridCustomView, cxGrid, Vcl.StdCtrls, cxButtons, System.Classes,
+  Vcl.Controls, dxLayoutControl;
+
+
 
 type
   TMainForm = class(TForm)
@@ -37,6 +35,8 @@ type
     procedure btnNewClick(Sender: TObject);
     procedure dxReport1LayoutChanged(ASender: TdxReport);
   private
+    procedure LoadReportNameAndLayout;
+    procedure SaveReportNameAndLayout;
     { Private declarations }
   public
     { Public declarations }
@@ -49,43 +49,61 @@ implementation
 
 {$R *.dfm}
 
+uses uData;
 
+procedure TMainForm.LoadReportNameAndLayout();
+begin
+  if (DataModule1.mdLayouts.RecordCount = 0) and not (DataModule1.mdLayouts.State = dsInsert)  then
+  begin
+    dxShowMessage('The database is empty');
+    Exit;
+  end;
+  // Load the report name from the database
+  dxReport1.ReportName := DataModule1.mdLayoutsName.AsString;
+  // Load the report layout from the database
+  dxReport1.Layout.Assign(DataModule1.mdLayoutsLayout);
+end;
+
+procedure TMainForm.SaveReportNameAndLayout();
+begin
+  // Start editing the active dataset record
+  DataModule1.mdLayouts.Edit;
+  // Save the report name
+  DataModule1.mdLayoutsName.AsString := dxReport1.ReportName;
+  // Save the report layout
+  DataModule1.mdLayoutsLayout.Assign(dxReport1.Layout);
+  // Finish editing and post the modified record to the database
+  DataModule1.mdLayouts.Post;
+end;
+
+
+// Handle the OnLayoutChanged event raised when a user saves a report layout in the Report Designer
+procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
+begin
+  SaveReportNameAndLayout;
+end;
+
+// To create a new report layout, create a new dataset record
 procedure TMainForm.btnNewClick(Sender: TObject);
 begin
-  DataModule1.mdLayouts.Append
+  DataModule1.mdLayouts.Append;
 end;
 
 procedure TMainForm.btnDesignClick(Sender: TObject);
 begin
-  if (DataModule1.mdLayouts.RecordCount = 0) and not (DataModule1.mdLayouts.State = dsInsert)  then
-  begin
-    ShowMessage('The database is empty');
-    Exit;
-  end;
-  dxReport1.ReportName := DataModule1.mdLayoutsName.AsString;
-  dxReport1.Layout.Assign(DataModule1.mdLayoutsLayout);
+  LoadReportNameAndLayout;
   dxReport1.ShowDesigner;
 end;
 
 procedure TMainForm.btnPreviewClick(Sender: TObject);
 begin
-  if (DataModule1.mdLayoutsName.AsString = '')  then
+  LoadReportNameAndLayout;
+  if (dxReport1.ReportName = '') then
   begin
-    ShowMessage('The report is not specified');
+    dxShowMessage('The report is not specified');
     Exit;
   end;
-
-  dxReport1.ReportName := DataModule1.mdLayoutsName.AsString;
-  dxReport1.Layout.Assign(DataModule1.mdLayoutsLayout);
   dxReport1.ShowViewer;
-end;
-
-procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
-begin
-  DataModule1.mdLayouts.Edit;
-  DataModule1.mdLayoutsLayout.Assign(dxReport1.Layout);
-  DataModule1.mdLayoutsName.AsString := dxReport1.ReportName;
-  DataModule1.mdLayouts.Post;
 end;
 
 end.

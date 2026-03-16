@@ -12,7 +12,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'DevExpress Example: Store Report in a Database';
-  Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

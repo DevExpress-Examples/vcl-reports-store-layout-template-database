@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, dxmdaset, cxClasses,
-  dxCore, cxLookAndFeels,
-  dxSkinsForm, dxBackend, dxBackend.ConnectionString.SQL;
+  dxCore, cxLookAndFeels, dxMessageDialog,
+  dxSkinsForm, dxBackend, dxBackend.ConnectionString.SQL, Vcl.AppEvnts;
 
 type
   TDataModule1 = class(TDataModule)
@@ -15,7 +15,8 @@ type
     mdLayoutsName: TWideStringField;
     dxBackendDataConnectionManager1: TdxBackendDataConnectionManager;
     ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection;
-    dxSkinController1: TdxSkinController;
+    ApplicationEvents1: TApplicationEvents;
+    procedure ApplicationEvents1Exception(Sender: TObject; E: Exception);
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
@@ -34,6 +35,11 @@ implementation
 {$R *.dfm}
 const
   DataFileName = 'data.dat';
+
+procedure TDataModule1.ApplicationEvents1Exception(Sender: TObject; E: Exception);
+begin
+  dxShowMessage(e.Message);
+end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
