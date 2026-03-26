@@ -26,7 +26,7 @@ and save changes to the data source.
     1.  Create a report layout using tools available within the UI.
     1.  Click the hamburger button, select the **Save** option, and close the dialog.
 1.  Close and restart the app.
-    Click **Design Report** or **Preview Report** to load the saved report in the
+1.  Click **Design Report** or **Preview Report** to load the saved report in the
     [Report Designer][dx-report-designer] or [Viewer][dx-report-viewer].
 
 ## Implementation Details
@@ -178,7 +178,7 @@ end;
 
 ## Documentation
 
--   [Introduction to VCL Reports][reports-intro]
+-   [Introduction to DevExpress Reports for Delphi/C++Builder][reports-intro]
 -   [Tutorial: Create a table report using the Report Wizard][report-wizard]
 -   [Use SQLite as a data source for reports (as demonstrated in the current example)][sqlite-data-source]
 -   [Store report layouts in REPX files at design-time][reports-design-time-store]
@@ -228,8 +228,14 @@ end;
 ## More Examples
 
 -   [Store report layouts in REPX files][file-example]
+-   [Filter data records in a report][filter-data-records]
+-   [Generate reports in a backend / service application][non-interactive-export]
+-   [Localize the Report Viewer and Report Designer][localize]
 
 [file-example]: https://github.com/DevExpress-Examples/vcl-reports-store-layout-template-file
+[filter-data-records]: https://github.com/DevExpress-Examples/vcl-filter-report-preview-based-on-grid-selected-rows
+[non-interactive-export]: https://github.com/DevExpress-Examples/vcl-reports-non-interactive-export
+[localize]: https://github.com/DevExpress-Examples/vcl-reports-localize
 
 
 <!-- feedback -->
