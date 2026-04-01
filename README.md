@@ -82,7 +82,10 @@ This example project uses a SQLite sample database ([nwind.db]) as the report's 
 To load a layout definition to the [TdxReport] component, you must specify
 report name ([TdxReport.ReportName]) and layout ([TdxReport.Layout]):
 
-```pas
+<!-- start-code-block -->
+#### Delphi
+
+```delphi
 procedure TMainForm.LoadReportNameAndLayout();
 begin
   // Ensure that the dataset has at least one record or a new record is being created:
@@ -96,6 +99,7 @@ begin
   dxReport1.Layout.Assign(DataModule1.mdLayoutsLayout);
 end;
 ```
+<!-- end-code-block -->
 
 To load a different report, assign a new report name and layout.
 The assigned report replaces the current layout definition.
@@ -106,7 +110,10 @@ The assigned report replaces the current layout definition.
 Once you assigned a name and layout to the [TdxReport] component,
 you can display [Report Designer][dx-report-designer] and [Report Viewer][dx-report-viewer] dialogs:
 
-```pas
+<!-- start-code-block -->
+#### Delphi
+
+```delphi
 procedure TMainForm.btnDesignClick(Sender: TObject);
 begin
   LoadReportFromLayout; // Loads a report layout definition from the database
@@ -119,6 +126,8 @@ begin
   dxReport1.ShowViewer; // Displays the Report Viewer
 end;
 ```
+<!-- end-code-block -->
+
 
 
 ### Step 4: Store Report Layouts in a Dataset
@@ -127,7 +136,10 @@ When a user edits and saves a report in the Report Designer,
 the value of [TdxReport.Layout] changes and an [OnLayoutChanged] event is called.
 Handle this event to save layout changes to the active dataset record.
 
-```pas
+<!-- start-code-block -->
+#### Delphi
+
+```delphi
 procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
 begin
   // Start editing the active dataset record:
@@ -141,6 +153,8 @@ begin
   DataModule1.mdLayouts.Post;
 end;
 ```
+<!-- end-code-block -->
+
 
 
 ### Step 5: Persist Data between Application Sessions
@@ -150,7 +164,10 @@ This step is applicable only to the memory-based [TdxMemData] datasource.
 To save the dataset to a file and restore data on app restart,
 handle `OnCreate` and `OnDestroy` events of the data module:
 
-```pas
+<!-- start-code-block -->
+#### Delphi
+
+```delphi
 const
   DataFileName = 'data.dat';
 
@@ -166,6 +183,8 @@ begin
     mdLayouts.SaveToBinaryFile(DataFileName)
 end;
 ```
+<!-- end-code-block -->
+
 
 
 ## Files to Review
