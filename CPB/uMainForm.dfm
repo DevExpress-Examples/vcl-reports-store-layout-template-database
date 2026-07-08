@@ -46,10 +46,6 @@ object MainForm: TMainForm
       object gvLayouts: TcxGridDBTableView
         DataController.DataSource = DataModule1.dsLayouts
         OptionsData.CancelOnExit = False
-        OptionsData.Deleting = False
-        OptionsData.DeletingConfirmation = False
-        OptionsData.Editing = False
-        OptionsData.Inserting = False
         OptionsView.ColumnAutoWidth = True
         OptionsView.GroupByBox = False
         OptionsView.Indicator = True
@@ -60,6 +56,7 @@ object MainForm: TMainForm
         object gvLayoutsLayout: TcxGridDBColumn
           Caption = 'Report Layout'
           DataBinding.FieldName = 'Layout'
+          Options.Editing = False
         end
         object gvLayoutsName: TcxGridDBColumn
           Caption = 'Report Name'

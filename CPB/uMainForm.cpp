@@ -45,44 +45,63 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
+void __fastcall TMainForm::LoadReportNameAndLayout()
+{
+	if ((DataModule1->mdLayouts->RecordCount == 0) &&
+		!(DataModule1->mdLayouts->State == dsInsert))
+	{
+		dxShowMessage("The database is empty");
+		return;
+	}
+	// Load the report name from the database
+	dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
+	// Load the report layout from the database
+	dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::SaveReportNameAndLayout()
+{
+	// Start editing the active dataset record
+	DataModule1->mdLayouts->Edit();
+	// Save the report name
+	DataModule1->mdLayoutsName->AsString = dxReport1->ReportName;
+	// Save the report layout
+	DataModule1->mdLayoutsLayout->Assign(dxReport1->Layout);
+	// Finish editing and post the modified record to the database
+	DataModule1->mdLayouts->Post();
+}
+//---------------------------------------------------------------------------
+
+// To create a new report layout, create a new dataset record
 void __fastcall TMainForm::btnNewClick(TObject *Sender)
 {
-    DataModule1->mdLayouts->Append();
+	DataModule1->mdLayouts->Append();
 }
+//---------------------------------------------------------------------------
+
+// Handle the OnLayoutChanged event raised when a user saves a report layout in the Report Designer
 void __fastcall TMainForm::dxReport1LayoutChanged(TdxReport *ASender)
 {
-    DataModule1->mdLayouts->Edit();
-    DataModule1->mdLayoutsLayout->Assign(dxReport1->Layout);
-    DataModule1->mdLayoutsName->AsString = dxReport1->ReportName;
-    DataModule1->mdLayouts->Post();
+	SaveReportNameAndLayout();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TMainForm::btnDesignClick(TObject *Sender)
 {
-    if ((DataModule1->mdLayouts->RecordCount == 0) &&
-		!(DataModule1->mdLayouts->State == dsInsert))
-	{
-		ShowMessage("The database is empty");
-		return;
-	}
-
-	dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
-	dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
+	LoadReportNameAndLayout();
 	dxReport1->ShowDesigner();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TMainForm::btnPreviewClick(TObject *Sender)
 {
-	if (DataModule1->mdLayoutsName->AsString == "")
+	LoadReportNameAndLayout();
+	if (dxReport1->ReportName == "")
 	{
-		ShowMessage("The report is not specified");
+		dxShowMessage("The report is not specified");
 		return;
 	}
-
-	dxReport1->ReportName = DataModule1->mdLayoutsName->AsString;
-	dxReport1->Layout->Assign(DataModule1->mdLayoutsLayout);
 	dxReport1->ShowViewer();
 }
 //---------------------------------------------------------------------------

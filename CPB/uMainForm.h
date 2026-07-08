@@ -28,6 +28,7 @@
 #include "cxNavigator.hpp"
 #include "cxStyles.hpp"
 #include "dxDateRanges.hpp"
+#include "dxMessageDialog.hpp"
 #include "dxReport.hpp"
 #include "dxScrollbarAnnotations.hpp"
 #include <Data.DB.hpp>
@@ -62,6 +63,8 @@ __published:	// IDE-managed Components
 	void __fastcall btnDesignClick(TObject *Sender);
 	void __fastcall btnPreviewClick(TObject *Sender);
 private:	// User declarations
+	void __fastcall LoadReportNameAndLayout();
+	void __fastcall SaveReportNameAndLayout();
 public:		// User declarations
 	__fastcall TMainForm(TComponent* Owner);
 };
