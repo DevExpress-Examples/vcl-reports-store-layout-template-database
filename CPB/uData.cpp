@@ -23,7 +23,7 @@
 #pragma resource "*.dfm"
 TDataModule1 *DataModule1;
 //---------------------------------------------------------------------------
-const String DataFileName = "data.dat";
+const wchar_t* const DataFileName = L"data.dat";
 
 
 __fastcall TDataModule1::TDataModule1(TComponent* Owner)
@@ -40,8 +40,8 @@ void __fastcall TDataModule1::DataModuleCreate(TObject *Sender)
 
 void __fastcall TDataModule1::DataModuleDestroy(TObject *Sender)
 {
-    if (mdLayouts->RecordCount > 0)
-        mdLayouts->SaveToBinaryFile(DataFileName);
+	if (mdLayouts->RecordCount > 0)
+		mdLayouts->SaveToBinaryFile(DataFileName);
 }
 //---------------------------------------------------------------------------
 
